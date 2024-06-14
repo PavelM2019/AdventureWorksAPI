@@ -129,6 +129,16 @@ async function init() {
             routing: go.Routing.AvoidsNodes,
             corner: 5,
             curve: go.Curve.JumpOver,
+            toolTip: $(go.Adornment, 'Auto',
+                $(go.Shape, { fill: '#f7e9e7' }),
+                $(go.Panel, 'Horizontal',
+                    { margin: 4 },
+                    $(go.TextBlock, { font: 'normal 12px sans-serif', margin: new go.Margin(0, 2, 0, 0) }, 'each'), 
+                    $(go.TextBlock, { font: 'bold 12px sans-serif', margin: new go.Margin(0, 2, 0, 0) }, new go.Binding('text', 'to')),
+                    $(go.TextBlock, { font: 'normal 12px sans-serif', margin: new go.Margin(0, 2, 0, 0) }, 'may have multiple'), 
+                    $(go.TextBlock, { font: 'bold 12px sans-serif' }, new go.Binding('text', 'from'))
+                )
+            )
         },
         $(go.Shape, // the link shape
             { stroke: '#f7f9fc', strokeWidth: 3 },
